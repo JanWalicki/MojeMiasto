@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:MojeMiasto.Views"
+       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+       xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+       Title="MojeMiasto"
+       x:Class="MojeMiasto.AppShell"
+       FlyoutBackgroundColor="{StaticResource black}">
+
+
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource black}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource white}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource white}" />
+                <Setter Property="Shell.DisabledColor" Value="{StaticResource grey}" />
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource grey}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource black}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource white}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource white}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource white}"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+
+
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+                <Setter Property="FontFamily" Value="Comfortaa"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="IsClippedToBounds"  Value="True" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+                                    <Setter Property="Label.BackgroundColor" Value="{StaticResource black}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+                                    <Setter Property="Label.BackgroundColor" Value="{StaticResource purple}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource white}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal" Padding="15" BackgroundColor="{StaticResource black}">
+                
+                <Frame HeightRequest="60" WidthRequest="60" BackgroundColor="Transparent">
+                    <ImageButton HeightRequest="50" WidthRequest="50"
+                                 xct:CornerRadiusEffect.CornerRadius="100" Aspect="AspectFill" BackgroundColor="Transparent">
+                        
+                        <ImageButton.Source>
+                            <UriImageSource
+                                Uri="{Binding UserIcon}"
+                                CacheValidity="0"
+                                CachingEnabled="False"/>
+                        </ImageButton.Source>
+                        
+                    </ImageButton>
+                </Frame>
+                <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label Text="{Binding UserName}" TextColor="{StaticResource white}" FontSize="23" Margin="0"/>
+                    <Label Text="{Binding UserCity}" TextColor="{StaticResource lightGrey}" FontSize="20" Margin="0"/>
+                </StackLayout>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Zlecenia">
+        <ShellContent Route="QuestsPage" ContentTemplate="{DataTemplate local:QuestsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Przyjęte zlecenia">
+        <ShellContent Route="TakenQuestsPage" ContentTemplate="{DataTemplate local:TakenQuestsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Moje zlecenia">
+        <ShellContent Route="UserQuestsPage" ContentTemplate="{DataTemplate local:UserQuestsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Społeczność">
+        <ShellContent Route="CommunityPage" ContentTemplate="{DataTemplate local:CommunityPage}" />
+    </FlyoutItem>
+
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal" Padding="25,10,10,10">
+                <ImageButton Source="Settings.png" Command="{Binding GoSettingsCommand}" WidthRequest="35" BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="{StaticResource purple}"/>
+                <Button Text="Settings" Command="{Binding GoSettingsCommand}" TextColor="{StaticResource purple}" BackgroundColor="Transparent" FontSize="17" FontAttributes="Bold"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+
+</Shell>

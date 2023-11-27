@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MojeMiasto.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="purple">#7827E6</Color>
+            <Color x:Key="white">#FFFCF2</Color>
+            <Color x:Key="black">#252422</Color>
+            <Color x:Key="grey">#313131</Color>
+            <Color x:Key="lightGrey">#575656</Color>
+
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Comfortaa"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Comfortaa"></Setter>
+            </Style>
+
+            <Style x:Key="Header" TargetType="StackLayout">
+                <Setter Property="Orientation" Value="Horizontal"></Setter>
+                <Setter Property="Margin" Value="0,0,0,10"></Setter>
+                <Setter Property="Padding" Value="25,25,25,0"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            </Style>
+
+            <Style x:Key="Header_Menu" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="WidthRequest" Value="40"></Setter>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
+                <Setter Property="Margin" Value="0,5,0,0"></Setter>
+            </Style>
+
+            <Style x:Key="Header_Label" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+                <Setter Property="FontSize" Value="22"></Setter>
+                <Setter Property="Padding" Value="0,15,0,0"></Setter>
+                <Setter Property="WidthRequest" Value="150"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+            </Style>
+
+            <Style x:Key="Header_Profile" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="WidthRequest" Value="50"></Setter>
+                <Setter Property="HeightRequest" Value="50"></Setter>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"></Setter>
+                <Setter Property="CornerRadius" Value="100"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
+                <Setter Property="Aspect" Value="AspectFill"></Setter>
+            </Style>
+
+            <Style x:Key="Top_Button" TargetType="StackLayout">
+                <Setter Property="Margin" Value="0,0,0,0"></Setter>
+                <Setter Property="Padding" Value="0"></Setter>
+                <Setter Property="HeightRequest" Value="32"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
+            </Style>
+            <Style x:Key="Top_Image" TargetType="StackLayout">
+                <Setter Property="WidthRequest" Value="90"></Setter>
+                <Setter Property="Margin" Value="0"></Setter>
+                <Setter Property="HeightRequest" Value="5"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="EndAndExpand"></Setter>
+            </Style>
+
+            <Style x:Key="Collection_Profile" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="WidthRequest" Value="60"></Setter>
+                <Setter Property="HeightRequest" Value="60"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="CornerRadius" Value="100"></Setter>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="Aspect" Value="AspectFill"></Setter>
+                <Setter Property="Margin" Value="0,0,10,0"></Setter>
+            </Style>
+
+
+            <Style x:Key="Entry_default" TargetType="Entry">
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource white}"></Setter>
+            </Style>
+
+
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

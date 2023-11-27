@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="MojeMiasto.Views.RegisterPage"
+             BackgroundImage="Background.png"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <!-- Header -->
+            <StackLayout Style="{StaticResource Header}">
+                <ImageButton Source="ArrowL.png" 
+                             Style="{StaticResource Header_Menu}"
+                             HeightRequest="40"
+                             Command="{Binding BackCommand}"/>
+            </StackLayout>
+            <Label Text="Rejestrowanie"
+                       FontSize="25"
+                       TextColor="{StaticResource white}"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="0,0,0,50"/>
+
+            <Frame BackgroundColor="Transparent" Padding="20,5,20,5">
+                <Frame BackgroundColor="{StaticResource black}" CornerRadius="10" Padding="10">
+                    <Frame BackgroundColor="{StaticResource grey}" CornerRadius="10" Padding="0">
+                        <StackLayout>
+                            <Entry Text="{Binding Name, Mode=TwoWay}" Placeholder="Imię" ClearButtonVisibility="WhileEditing"  TextColor="{StaticResource white}" PlaceholderColor="{StaticResource white}"/>
+                        </StackLayout>
+                    </Frame>
+                </Frame>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" Padding="20,5,20,5">
+                <Frame BackgroundColor="{StaticResource black}" CornerRadius="10" Padding="10">
+                    <Frame BackgroundColor="{StaticResource grey}" CornerRadius="10" Padding="0">
+                        <StackLayout>
+                            <Entry Text="{Binding Surname, Mode=TwoWay}" Placeholder="Nazwisko" ClearButtonVisibility="WhileEditing"  TextColor="{StaticResource white}" PlaceholderColor="{StaticResource white}"/>
+                        </StackLayout>
+                    </Frame>
+                </Frame>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" Padding="20,5,20,5">
+                <Frame BackgroundColor="{StaticResource black}" CornerRadius="10" Padding="10">
+                    <Frame BackgroundColor="{StaticResource grey}" CornerRadius="10" Padding="0">
+                        <StackLayout>
+                            <Entry Text="{Binding Email, Mode=TwoWay}" Placeholder="Email" ClearButtonVisibility="WhileEditing"  TextColor="{StaticResource white}" PlaceholderColor="{StaticResource white}"/>
+                        </StackLayout>
+                    </Frame>
+                </Frame>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" Padding="20,5,20,5">
+                <Frame BackgroundColor="{StaticResource black}" CornerRadius="10" Padding="10">
+                    <Frame BackgroundColor="{StaticResource grey}" CornerRadius="10" Padding="0">
+                        <StackLayout>
+                            <Entry Text="{Binding Password, Mode=TwoWay}" Placeholder="Hasło" ClearButtonVisibility="WhileEditing"  TextColor="{StaticResource white}" PlaceholderColor="{StaticResource white}" IsPassword="True"/>
+                        </StackLayout>
+                    </Frame>
+                </Frame>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" Padding="20,5,20,5">
+                <Frame BackgroundColor="{StaticResource black}" CornerRadius="10" Padding="10">
+                    <Frame BackgroundColor="{StaticResource grey}" CornerRadius="10" Padding="0">
+                        <StackLayout>
+                            <Entry Text="{Binding RepeatPassword, Mode=TwoWay}" Placeholder="Powtórz hasło" ClearButtonVisibility="WhileEditing"  TextColor="{StaticResource white}" PlaceholderColor="{StaticResource white}" IsPassword="True"/>
+                        </StackLayout>
+                    </Frame>
+                </Frame>
+            </Frame>
+
+            <Label Text="{Binding Error}"  TextColor="#a10000" FontSize="20" HorizontalOptions="Center"/>
+            
+
+            <Frame BackgroundColor="Transparent" Padding="20,5,20,5">
+                <Frame BackgroundColor="{StaticResource black}" CornerRadius="100" Padding="10">
+                    <Frame BackgroundColor="{StaticResource grey}" CornerRadius="100" Padding="0">
+                        <StackLayout>
+                            <Button Command="{Binding RegisterCommand}" Text="Register" BackgroundColor="{StaticResource purple}" TextColor="{StaticResource white}"/>   
+                        </StackLayout>
+                    </Frame>
+                </Frame>
+            </Frame>
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
